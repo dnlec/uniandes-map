@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Uniandes Map</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .rounded-button {
+            width: 20px;
+            height: 20px;
+            background: #fcfcb1;
+            color: #000000;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            text-decoration: none;
+            transition: background 0.2s;
+            transition: transform 0.5s;
+        }
+
+        .rounded-button:hover {
+            background: #f5f564;
+            transform: scale(1.5);
+        }
+
+        .rounded-button: active {
+            background: #f2f218;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>This is uniandes map</h1>
+    <h2>The image works</h2>
+    <img src="{% static 'images/map_campus.jpeg' %}" alt="" width="1100">
+
+    <a class="rounded-button" id="button">
+        <ion-icon name="ellipse-outline"></ion-icon>
+    </a>
+
+    <div class="popup">
+        <div class="popup-content">
+            <ion-icon name="close-outline" alt="Close" class="close"></ion-icon>
+            <h1>Building selection - Tag</h1>
+            <p>
+                Description of the building for example:
+                This building was founded 10 years ago
+                by the director of Niacin.
+            </p>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById("button").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "flex";
+        })
+
+        document.querySelector(".close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+        })
+
+    </script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
