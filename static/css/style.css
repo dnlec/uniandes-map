@@ -1,13 +1,77 @@
+#parent{position: relative; width: 1100px}
+
+#start_point_button {
+    background-color: #ffff69;
+    cursor: pointer;
+}
+#end_point_button {
+    background-color: #ffff69;
+    cursor: pointer;
+}
+input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: black;
+}
+
+
+
+#ML1 {
+    position: absolute;
+    right: 685px;
+    top: 260px;
+}
+
+#ML3 {
+    position: absolute;
+    right: 590px;
+    top: 310px;
+}
+
+#In3 {
+    position: absolute;
+    right: 740px;
+    top: 295px;
+}
+
+.rounded-button {
+    width: 20px;
+    height: 20px;
+    background: #fcfcb1;
+    color: #000000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    text-decoration: none;
+
+    transition: background 0.2s;
+    transition: transform 0.5s;
+}
+
+.rounded-button:hover {
+    background: #f5f564;
+    transform: scale(1.5);
+}
+
+.rounded-button: active {
+    background: #f2f218;
+}
+
+
 .popup{
     background: rgba(0, 0, 0, 0.6);
     width: 100%;
-    height: 100%
-    position: absolute;
-    top: 0;
+    height: 100%;
     display: none;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    position: absolute;
+    top: 0;
 }
 
 .popup-content{
@@ -17,6 +81,7 @@
     padding: 20px;
     border-radius: 5px;
     position: relative;
+
 }
 
 .close{
@@ -30,3 +95,5 @@
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
+
+
