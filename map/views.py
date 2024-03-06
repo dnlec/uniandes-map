@@ -35,10 +35,18 @@ def uniandes_map(request):
                 walk_time = f"{walk_time:.0f} min"
 
             total_distance = f'{total_distance} metros'
+            path_length = len(path)
 
-            context['route'] = [total_distance, walk_time, path]
+            context['total_distance'] = total_distance
+            context['walk_time'] = walk_time
+            context['path_length'] = path_length - 1
+            context['path'] = path
+
+            return render(request, "path_result.html", context)
 
         else:
             raise Http404
 
-    return render(request, "uniandes_map.html", context)
+    return render(request, "uniandes_map.html")
+
+

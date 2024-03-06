@@ -1,4 +1,282 @@
-#parent{position: relative; width: 1100px}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #EFEFEF;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 50px 0;
+    margin: 0;
+}
+
+.title-map{
+    font-family: "Libre Franklin", sans-serif;
+}
+
+.statistics-path{
+    display: inline-block;
+    position: relative;
+    bottom: 600px;
+}
+
+.places{
+
+}
+
+.container {
+    max-width: 1300px;
+    padding: 50px;
+    display: inline-block;
+}
+
+h1{
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.image-hotspot{
+    max-width: 1100px;
+    margin: 50px;
+    position: relative;
+}
+
+#myCanvas{
+    position: absolute;
+    max-width: 100%;
+    border:0 solid grey;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.image-hotspot img{
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #bdb9b9;
+    box-shadow: 0 0 14px 0 rgb(0, 0, 0, 12%);
+}
+
+
+/*#fcfcb1 border: #4a4a40*/
+.icon{
+    width: 19px;
+    height: 19px;
+    color: #faee02;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 100%;
+    border: 2px solid #ff4056;
+    background: #f70a25;
+    cursor: pointer;
+}
+
+/*#fcfcb1 border: #4a4a40*/
+.icon-in{
+    width: 19px;
+    height: 19px;
+    color: #faee02;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 100%;
+    border: 2px solid #035efc;
+    background: #1a1ef0;
+    cursor: pointer;
+}
+
+.icon:after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(1, 1);
+    pointer-events: none;
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    border: 1px solid #fcfcb1;
+    transition: border-color 1s linear;
+    animation: icon-pulse 4s linear infinite;
+}
+
+.icon-in:after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(1, 1);
+    pointer-events: none;
+    content: "";
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    border: 1px solid #fcfcb1;
+    transition: border-color 1s linear;
+    animation: icon-pulse 4s linear infinite;
+}
+
+@keyframes icon-pulse {
+0%{
+    transform: translate(-50%, -50%) scale(1, 1);
+    opacity: 0;
+}
+
+20%{
+    transform: translate(-50%, -50%) scale(1.5, 1.5);
+    opacity: 0.9;
+}
+
+50%{
+    transform: translate(-50%, -50%) scale(2, 2);
+    opacity: 0.9;
+}
+
+100%{
+    transform: translate(-50%, -50%) scale(2, 2);
+    opacity: 0;
+}
+}
+
+@keyframes icon-in-pulse {
+0%{
+    transform: translate(-50%, -50%) scale(1, 1);
+    opacity: 0;
+}
+
+20%{
+    transform: translate(-50%, -50%) scale(1.5, 1.5);
+    opacity: 0.9;
+}
+
+50%{
+    transform: translate(-50%, -50%) scale(2, 2);
+    opacity: 0.9;
+}
+
+100%{
+    transform: translate(-50%, -50%) scale(2, 2);
+    opacity: 0;
+}
+}
+
+.item{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+
+
+
+
+.tooltip{
+    position: absolute;
+    padding: 15px;
+    width: 13em;
+    height: 7em;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    line-height: 1.5em;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.item:hover .tooltip{
+    opacity: 1;
+}
+
+
+
+.tooltip h3{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ml1 .tooltip{
+    left: calc(50% - 6.5em);
+    bottom: 40px;
+}
+
+.ml1 .tooltip:after{
+    color: #fff;
+    position: absolute;
+    content: "";
+    bottom: -13px;
+    border-top: 13px solid;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    left: calc(50% - 13px);
+}
+
+.ml3 .tooltip{
+    left: calc(50% - 6.5em);
+    top: 40px;
+}
+
+.ml3 .tooltip:after{
+    color: #fff;
+    position: absolute;
+    content: "";
+    top: -13px;
+    border-bottom: 13px solid;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    left: calc(50% - 13px);
+}
+
+.in .tooltip{
+    bottom: calc(50% - 3.5em);
+    right: 40px;
+}
+
+.in .tooltip:after{
+    color: #fff;
+    position: absolute;
+    content: "";
+    right: -13px;
+    border-left: 13px solid;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    top: calc(50% - 13px);
+}
+
+.right .tooltip{
+    bottom: calc(50% - 3.5em);
+    left: 40px;
+}
+
+.right .tooltip:after{
+    color: #fff;
+    position: absolute;
+    content: "";
+    left: -13px;
+    border-right: 13px solid;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    top: calc(50% - 13px);
+}
+
+@media only screen and (max-width: 600px){
+    h1{
+        font-size: 2em;
+    }
+}
+
 
 #start_point_button {
     background-color: #ffff69;
@@ -15,23 +293,10 @@ input::placeholder {
 }
 
 
-
-#ML1 {
-    position: absolute;
-    right: 685px;
-    top: 260px;
-}
-
-#ML3 {
-    position: absolute;
-    right: 590px;
-    top: 310px;
-}
-
-#In3 {
-    position: absolute;
-    right: 740px;
-    top: 295px;
+#buttons{
+    position: relative;
+    top: 50px;
+    left: 50px;
 }
 
 .rounded-button {
@@ -47,8 +312,7 @@ input::placeholder {
     border: none;
     text-decoration: none;
 
-    transition: background 0.2s;
-    transition: transform 0.5s;
+    transition: background 0.2s, transform 0.5s;
 }
 
 .rounded-button:hover {
@@ -56,9 +320,11 @@ input::placeholder {
     transform: scale(1.5);
 }
 
-.rounded-button: active {
+.rounded-button:active {
     background: #f2f218;
 }
+
+
 
 
 .popup{
@@ -95,5 +361,175 @@ input::placeholder {
     box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
+
+
+.svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+/*Otro tutorial en español*/
+.contenedor {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+    padding-top: 200px;
+}
+
+figure{
+    width: 100%;
+    position: relative;
+}
+
+figure .mapa {
+    width: 100%;
+    vertical-align: top;
+    box-shadow: 5px 5px 60px rgba(0, 0, 0, .20);
+    border-radius: 10px;
+}
+
+figure .icono {
+    position: absolute;
+    font-size: 25px;
+    color: rgba(255, 229, 15, 0.99)
+}
+
+figure .ML {
+    top: 32%;
+    left: 36%;
+}
+figure .SD {
+    top: 13%;
+    left: 15%;
+}
+
+.tooltipp {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, .20);
+    width: 31.25em;
+    z-index: 1000;
+    opacity: 0;
+    transition: .3s ease all;
+    transform: translateY(10px);
+}
+
+.tooltipp:after {
+    content: "";
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #fff;
+    position: absolute;
+    bottom: -15px;
+    left: calc(50% - 15px);
+}
+
+.tooltipp.activo {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.tooltipp .thumb {
+    width: 40%;
+}
+
+.tooltipp .thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+    vertical-align: top;
+}
+
+.tooltipp .info {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tooltipp .info .titulo {
+    color: #ffd91c;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tooltipp .info .direccion {
+    color: #707070;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.tooltipp .info .resumen {
+    margin-bottom: 20px;
+}
+
+.tooltipp .info .contenedor-btn {
+    display: flex;
+    justify-content: center;
+}
+.tooltipp .info button {
+    border: none;
+    background: rgba(255, 247, 101, 1);
+    font-weight: bold;
+    padding: 10px 20px;
+    width: 80%;
+    color: #000;
+    border-radius: 100px;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+
+.tooltipp .info button:hover {
+    background-color: rgba(255, 247, 101, 0.85);
+}
+
+
+/* media queries*/
+@media screen and (max-width: 768px) {
+    figcaption .tooltipp {
+        font-size: 12px;
+    }
+
+    .tooltipp .info button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    figure .mapa {
+        margin-bottom: 40px;
+    }
+
+    figcaption .icono {
+        top: 94px;
+    }
+
+    .tooltipp {
+        position: static;
+        opacity: 1;
+        width: 100%;
+        transform: translate(0);
+    }
+
+    .tooltipp::after {
+        content: "";
+        display: none
+    }
+}
+
+
+
+
+
+
 
 
