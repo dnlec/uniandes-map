@@ -21,7 +21,6 @@ const calcularPosicionTooltipp = () => {
         tooltipps[i].style.left = `${izquierda}px`;
         tooltipps[i].style.top = `${arriba}px`;
     }
-
 };
 
 window.addEventListener('load', () => calcularPosicionTooltipp());

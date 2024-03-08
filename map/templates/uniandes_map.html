@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uniandes Map</title>
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +53,7 @@
 
 
     <main class="contenedor">
-        <figure>
+        <figure id="figure">
 
             <img src="{% static 'images/map_campus.jpeg' %}" class="mapa" alt="">
 
@@ -70,43 +72,82 @@
             </svg>
 
 
-            <figcaption>
-                <i class="icono ML fa-solid fa-circle" id="ML"></i>
-                <div class="tooltipp" id="tooltipp">
-                    <div class="thumb">
-                        <img src="{% static 'images/ML.jpg' %}" alt="">
-                    </div>
-                    <div class="info">
-                        <h3 class="titulo">ML</h3>
-                        <p class="direccion">Cra 1 E #19a-70, Bogotá</p>
-                        <p class="resumen">
-                            El ML es el edificio de ingenieria y es de los mas iconicos.
-                        </p>
-                        <div class="contenedor-btn">
-                            <button>Ver Planos</button>
-                        </div>
-                    </div>
-                </div>
-            </figcaption>
+<!--            <figcaption>-->
+<!--                <i class="icono ML fa-solid fa-circle" id="ML"></i>-->
+<!--                <div class="tooltipp" id="tooltipp">-->
+<!--                    <div class="thumb">-->
+<!--                        <img src="{% static 'images/ML.jpg' %}" alt="" id="mll">-->
+<!--                    </div>-->
+<!--                    <div class="info">-->
+<!--                        <h3 class="titulo">ML</h3>-->
+<!--                        <p class="direccion">Cra 1 E #19a-70, Bogotá</p>-->
+<!--                        <p class="resumen">-->
+<!--                            El ML es el edificio de ingenieria y es de los mas iconicos.-->
+<!--                        </p>-->
+<!--                        <div class="contenedor-btn">-->
+<!--                            <button>Ver Planos</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </figcaption>-->
 
-            <figcaption>
-                <i class="icono SD fa-solid fa-circle" id="SD"></i>
-                <div class="tooltipp" id="tooltippSD">
-                    <div class="thumb">
-                        <img src="{% static 'images/sd.jpg' %}" alt="">
-                    </div>
-                    <div class="info">
-                        <h3 class="titulo">SD</h3>
-                        <p class="direccion">Cl. 21 #1-20, Bogotá</p>
-                        <p class="resumen">
-                            El SD es el edificio de administracion. Muy iconico tambien.
-                        </p>
-                        <div class="contenedor-btn">
-                            <button>Ver Planos</button>
-                        </div>
-                    </div>
-                </div>
-            </figcaption>
+<!--            <figcaption>-->
+<!--                <i class="icono SD fa-solid fa-circle" id="SD"></i>-->
+<!--                <div class="tooltipp" id="tooltippSD">-->
+<!--                    <div class="thumb">-->
+<!--                        <img src="{% static 'images/sd.jpg' %}" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="info">-->
+<!--                        <h3 class="titulo">SD</h3>-->
+<!--                        <p class="direccion">Cl. 21 #1-20, Bogotá</p>-->
+<!--                        <p class="resumen">-->
+<!--                            El SD es el edificio de administracion. Muy iconico tambien.-->
+<!--                        </p>-->
+<!--                        <div class="contenedor-btn">-->
+<!--                            <button>Ver Planos</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </figcaption>-->
+
+<!--            <figcaption>-->
+<!--                <i class="icono W fa-solid fa-circle" id="W"></i>-->
+<!--                <div class="tooltipp" id="tooltippW">-->
+<!--                    <div class="thumb">-->
+<!--                        <img src="{% static 'images/W.jpg' %}" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="info">-->
+<!--                        <h3 class="titulo">W</h3>-->
+<!--                        <p class="direccion">Cl. 19A #1e-37, Bogotá</p>-->
+<!--                        <p class="resumen">-->
+<!--                            El W es el edificio de economia. Otro bien iconico.-->
+<!--                        </p>-->
+<!--                        <div class="contenedor-btn">-->
+<!--                            <button>Ver Planos</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </figcaption>-->
+
+<!--            <figcaption>-->
+<!--                <i class="icono Ts fa-solid fa-circle" id="Ts"></i>-->
+<!--                <div class="tooltipp" id="tooltippTs">-->
+<!--                    <div class="thumb">-->
+<!--                        <img src="{% static 'images/Ts.jpg' %}" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="info">-->
+<!--                        <h3 class="titulo">Torre Seneca</h3>-->
+<!--                        <p class="direccion">Cl. 19 #2a-10, Bogotá</p>-->
+<!--                        <p class="resumen">-->
+<!--                            Torre Seneca junto a dos torres mas, son las viviendas universitarias de Uniandes.-->
+<!--                        </p>-->
+<!--                        <div class="contenedor-btn">-->
+<!--                            <button>Ver Planos</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </figcaption>-->
+
 
 
 
@@ -187,10 +228,12 @@
 
 
 
-
     <script src="{% static 'script/script.js' %}"></script>
+    <script src="{% static 'script/put_icons.js' %}"></script>
     <script src="{% static 'script/tooltipp.js' %}"></script>
-    <script src="{% static 'script/drawsvg.js' %}"></script>
+    <script type="module" src="{% static 'script/drawsvg.js' %}"></script>
+
+
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
