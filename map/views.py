@@ -42,7 +42,7 @@ def uniandes_map(request):
             context['path_length'] = path_length - 1
             context['path'] = path
 
-            return render(request, "path_result.html", context)
+            return render(request, "path_result2.html", context)
 
         else:
             raise Http404

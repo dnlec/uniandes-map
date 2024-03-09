@@ -1,8 +1,31 @@
 const points =
-    [['ML', 'Cra 1 E #19a-70, Bogotá', 'El ML es el edificio de ingenieria y es de los mas iconicos.'],
-    ['SD', 'Cl. 21 #1-20, Bogotá', 'El SD es el edificio de administracion. Muy iconico tambien.'],
-    ['W', 'Cl. 19A #1e-37, Bogotá', 'El W es el edificio de economia. Otro bien iconico.'],
+    [['ML1', 'Cra 1 E #19a-70, Bogotá', 'El ML es el edificio de ingenieria y es de los mas iconicos.'],
+    ['Sd', 'Cl. 21 #1-20, Bogotá', 'El SD es el edificio de administracion. Muy iconico tambien.'],
+    ['W', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['Ts', 'Cl. 19 #2a-10, Bogotá', 'Torre Seneca junto a dos torres mas, son las viviendas universitarias de Uniandes.']];
+
+const startButton = document.querySelector("#start_point_button");
+const endButton = document.querySelector("#end_point_button");
+
+const path = JSON.parse(document.getElementById('id-list').textContent);
+
+
+const selectPoint = (icon) => {
+    let pointId = icon.getAttribute('id');
+    if (startButton.value === "") {
+        if (endButton.value === pointId) {
+            alert("You cannot select the same point. Choose other");
+        } else {
+            startButton.value = pointId;
+        }
+    } else {
+        if (startButton.value === pointId) {
+            alert("You cannot select the same point. Choose other");
+        } else {
+            endButton.value = pointId;
+        }
+    }
+}
 
 const figure = document.getElementById('figure');
 for(let i = 0; i < points.length; i++) {
@@ -11,6 +34,7 @@ for(let i = 0; i < points.length; i++) {
         let icon = document.createElement('i')
         icon.classList.add('icono', `${points[i][0]}`, 'fa-solid', 'fa-circle');
         icon.setAttribute('id', `${points[i][0]}`);
+        icon.addEventListener('click', () => selectPoint(icon));
 
         let tooltippDiv = document.createElement('div');
         tooltippDiv.classList.add('tooltipp')
@@ -60,6 +84,16 @@ for(let i = 0; i < points.length; i++) {
     figcaption.appendChild(tooltippDiv);
 
     figure.appendChild(figcaption);
-
-
 }
+
+if(path.length !== 0) {
+    const connections = ['In1', 'In2', 'In3'];
+
+    for(let i = 0; i < connections.length; i++) {
+        let icon = document.createElement('i');
+        icon.classList.add('iconoIn', `${connections[i]}`, 'fa-solid', 'fa-circle');
+        icon.setAttribute('id', `${connections[i]}`);
+        figure.appendChild(icon);
+    }
+}
+

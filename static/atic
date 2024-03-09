@@ -1,0 +1,35 @@
+<!--        <div class="popup">-->
+<!--            <div class="popup-content">-->
+<!--                <ion-icon name="close-outline" alt="Close" class="close"></ion-icon>-->
+<!--                <h1>Building selection - Tag</h1>-->
+<!--                <p>-->
+<!--                    Description of the building for example:-->
+<!--                    This building was founded 10 years ago-->
+<!--                    by the director of Niacin.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+// document.getElementById("ML1").addEventListener("click", function(){
+//     document.querySelector(".popup").style.display = "flex";
+//
+// })
+//
+// document.querySelector(".close").addEventListener("click", function(){
+//     document.querySelector(".popup").style.display = "none";
+// })
+
+<!--        <button type="button" class="delete-point" id="delete_start_point" onClick="delete_point(this.id)">-->
+<!--            <ion-icon name="close-outline"></ion-icon>-->
+<!--        </button>-->
+<!--        <button type="button" class="delete-point" id="delete_end_point" onClick="delete_point(this.id)">-->
+<!--            <ion-icon name="close-outline"></ion-icon>-->
+<!--        </button>-->
+<!--        <p style="display:inline;">&emsp;</p>-->
+
+
+<!--            <h1>Mini CSS-vars Design System</h1>-->
+
+<!--            <p>Most of the projects I work on have about <mark>3</mark> important colors: Main- , Accent-  and Background-Color. Naturally tons of other colors are used in a typical Project, but they are mostly used within specific components.</p>-->
+
+<!--            <p>I find it useful to set those 3 colors as vars on the root and change them in specific contexts. It turns out that the complexity of the components I build is dramatically cut down by this. And also gives me a lot of control over the cascade.</p>-->

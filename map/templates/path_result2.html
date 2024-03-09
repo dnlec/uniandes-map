@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniandes Map</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/2d289c62ad.js" crossorigin="anonymous"></script>
+</head>
+
+
+
+
+
+
+<body class="body">
+<div class="title-map"><h1>Uniandes Map</h1></div>
+
+
+{{ path|json_script:"id-list" }}
+
+<form method="post">
+    {% csrf_token %}
+    <label for="start_point_button">Punto Inicial: </label>
+    <input type="text" id="start_point_button" name="start_point" placeholder="Incio">
+
+    <button type="button" class="delete-point" id="delete_start_point" onClick="delete_point(this.id)">
+        <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <label for="end_point_button">&emsp;Punto Final: </label>
+    <input type="text" id="end_point_button" name="end_point" placeholder="Fin" >
+
+    <button type="button" class="delete-point" id="delete_end_point" onClick="delete_point(this.id)">
+        <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <p style="display:inline;">&emsp;</p>
+
+    <input type="submit" id="search_button" value="Buscar Ruta">
+</form>
+
+
+<h3>Distancia del recorrido:</h3>
+<span>{{ total_distance }}</span>
+<h3>Tiempo aproximado:</h3>
+<span>{{ walk_time }}</span><br><br>
+<h3>Ruta:</h3><br>
+{% for place in path %}
+<ul>
+    <li class="places">{{ place }}</li>
+</ul>
+{% endfor %}
+
+
+<main class="contenedor">
+    <figure id="figure">
+
+        <img src="{% static 'images/map_campus.jpeg' %}" class="mapa" alt="">
+
+        <svg class="svg" id="svg" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+        </svg>
+
+    </figure>
+</main>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div id="buttons">
+        <a class="rounded-button">
+            <ion-icon name="ellipse-outline"></ion-icon>
+        </a>
+
+        <a class="rounded-button">
+            <ion-icon name="ellipse-outline"></ion-icon>
+        </a>
+
+        <a class="rounded-button">
+            <ion-icon name="ellipse-outline"></ion-icon>
+        </a>
+    </div>
+
+    <div class="image-hotspot">
+
+
+
+        <img src="{% static 'images/map_campus.jpeg' %}" alt="image hotspot">
+
+        <canvas id="myCanvas" width="1100%" height="793%"></canvas>
+
+        <div class="item ml3" id="ML3" onClick="selected_building(this.id)" style="top: 42%; left: 45%;">
+            <div class="icon">ML</div>
+            <div class="tooltip">
+                <h3>Mario Laserna - ML3</h3>
+                <p>dummy text</p>
+            </div>
+        </div>
+        <!--            33% 37%-->
+        <div class="item ml1" id="ML1" onClick="selected_building(this.id)" style="top: 34%; left: 36.5%;">
+            <div class="icon">ML</div>
+            <div class="tooltip">
+                <h3>Mario Laserna - ML1</h3>
+                <p>dummy text</p>
+            </div>
+        </div>
+        <div class="item in" id="In3" onClick="selected_building(this.id)" style="top: 39%; left: 32%;">
+            <div class="icon-in">In</div>
+            <div class="tooltip">
+                <h3>Interseccion 3 - In3</h3>
+                <p>Una simple interseccion</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'script/script.js' %}"></script>
+<script src="{% static 'script/put_icons.js' %}"></script>
+<script src="{% static 'script/tooltipp.js' %}"></script>
+<script type="module" src="{% static 'script/drawsvg.js' %}"></script>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+const points = JSON.parse(document.getElementById('id-list').textContent);
 const svg = document.getElementById('svg');
-const points = ['ML', 'SD', 'W', 'Ts'];
+// const points = ['ML', 'SD', 'W', 'Ts', 'In1', 'In2'];
 let d = ``;
 
 
@@ -16,8 +17,8 @@ const calculatePathPosition = () => {
 
 
         // Calculate the position of the icon
-        const x = icon.offsetLeft + 10;
-        const y = icon.offsetTop + 10;
+        const x = icon.offsetLeft + 13;
+        const y = icon.offsetTop + 13;
 
         if (index === 0) {
             d += `M ${x} ${y} `;
@@ -26,15 +27,13 @@ const calculatePathPosition = () => {
         }
     })
 
-
-
-
+    // Draw the path
     let path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path3.setAttribute('d', d);
     path3.setAttribute('style', 'stroke:black;fill:none;stroke-width:5');
     svg.appendChild(path3);
 
-
+    // Animations
     let length = path3.getTotalLength();
 // Clear any previous transition
     path3.style.transition = path3.style.WebkitTransition = 'none';
@@ -67,19 +66,20 @@ const calculatePathPosition = () => {
 
 };
 
+if (points.length !== 0) {
+    window.addEventListener('load', () => {
+        d3.selectAll('path').remove();
+        calculatePathPosition();
+    });
+
+    window.addEventListener('resize', () => {
+        d3.selectAll('path').remove();
+        d3.selectAll('circle').remove();
+        calculatePathPosition();
+    });
+}
 
 
-
-window.addEventListener('load', () => {
-    d3.selectAll('path').remove();
-    calculatePathPosition();
-});
-
-window.addEventListener('resize', () => {
-    d3.selectAll('path').remove();
-    // d3.selectAll('circle').remove();
-    calculatePathPosition();
-});
 
 
 

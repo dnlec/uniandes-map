@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uniandes Map</title>
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexbox.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,31 +23,71 @@
     <script src="https://kit.fontawesome.com/2d289c62ad.js" crossorigin="anonymous"></script>
 </head>
 
+
+
+
+
+
 <body class="body">
-    <div class="title-map"><h1>Uniandes Map</h1></div>
+
+    <div class="header">
+        <h1>Uniandes Map</h1>
+    </div>
+
 
 
     {{ path|json_script:"id-list" }}
 
-    <form method="post">
-        {% csrf_token %}
-        <label for="start_point_button">Punto Inicial: </label>
-        <input type="text" id="start_point_button" name="start_point" placeholder="Incio">
+    <div class="form-flexbox">
 
-        <button type="button" class="delete-point" id="delete_start_point" onClick="delete_point(this.id)">
-            <ion-icon name="close-outline"></ion-icon>
-        </button>
+        <div class="form-div">
+            <form method="post">
+                {% csrf_token %}
+                <article class="l-design-widht">
+                    <div class="card card--accent">
+                        <h2><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-coffee" href="#icon-coffee" />
+                        </svg>Ruta</h2>
+                        <label class="input">
 
-        <label for="end_point_button">&emsp;Punto Final: </label>
-        <input type="text" id="end_point_button" name="end_point" placeholder="Fin" >
+                            <input class="input__field" type="text" placeholder=" " id="start_point_button" name="start_point"/>
+                            <span class="input__label">Inicio</span>
 
-        <button type="button" class="delete-point" id="delete_end_point" onClick="delete_point(this.id)">
-            <ion-icon name="close-outline"></ion-icon>
-        </button>
-        <p style="display:inline;">&emsp;</p>
+                            <input class="input__field" type="text" placeholder=" " id="end_point_button" name="end_point"/>
+                            <span class="input__label" id="label2">Destino</span>
 
-        <input type="submit" id="search_button" value="Buscar Ruta">
-    </form>
+                        </label>
+
+                    </div>
+                </article>
+                <input type="submit" class="button-74" id="search_button" value="Buscar Ruta">
+            </form>
+        </div>
+
+
+
+        <div class="statistics-path">
+            <h3>Distancia del recorrido:</h3>
+            <span>{{ total_distance }}</span>
+            <h3>Tiempo aproximado:</h3>
+            <span>{{ walk_time }}</span><br><br>
+            <h3>Ruta:</h3><br>
+            {% for place in path %}
+            <ul>
+                <li class="places">{{ place }}</li>
+            </ul>
+            {% endfor %}
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+            <symbol id="icon-coffee" viewBox="0 0 20 20">
+                <title>icon-coffee</title>
+                <!--            <path fill="#444444" d="M512 13131.333333c-164.949333 0-298.666667 133.738667-298.666667 298.666667 0 164.949333 298.666667 554.666667 298.666667 554.666667s298.666667-389.717333 298.666667-554.666667c0-164.928-133.717333-298.666667-298.666667-298.666667z m0 448a149.333333 149.333333 0 1 1 0-298.666666 149.333333 149.333333 0 0 1 0 298.666666z"></path>-->
+            </symbol>
+        </svg>
+
+
+    </div>
 
 
 
@@ -54,107 +95,9 @@
 
     <main class="contenedor">
         <figure id="figure">
-
             <img src="{% static 'images/map_campus.jpeg' %}" class="mapa" alt="">
-
-            <svg class="svg" id="svg" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="0" x2="300" y2="200" style="stroke:red;stroke-width:2" />
-                <path d="M 10 10 L 40 40 L 500 100" style="stroke:blue;stroke-width:3;fill:none"/>
-                <path d="M 20 20 L 50 50 L 510 110" style="stroke:green;stroke-width:3;fill:none"/>
-
-                <circle r="5" fill="red">
-                    <animateMotion
-                            dur="2s"
-                            repeatCount="indefinite"
-                            path="M 10 10 L 40 40 L 500 100" />
-                </circle>
-
-            </svg>
-
-
-<!--            <figcaption>-->
-<!--                <i class="icono ML fa-solid fa-circle" id="ML"></i>-->
-<!--                <div class="tooltipp" id="tooltipp">-->
-<!--                    <div class="thumb">-->
-<!--                        <img src="{% static 'images/ML.jpg' %}" alt="" id="mll">-->
-<!--                    </div>-->
-<!--                    <div class="info">-->
-<!--                        <h3 class="titulo">ML</h3>-->
-<!--                        <p class="direccion">Cra 1 E #19a-70, Bogotá</p>-->
-<!--                        <p class="resumen">-->
-<!--                            El ML es el edificio de ingenieria y es de los mas iconicos.-->
-<!--                        </p>-->
-<!--                        <div class="contenedor-btn">-->
-<!--                            <button>Ver Planos</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </figcaption>-->
-
-<!--            <figcaption>-->
-<!--                <i class="icono SD fa-solid fa-circle" id="SD"></i>-->
-<!--                <div class="tooltipp" id="tooltippSD">-->
-<!--                    <div class="thumb">-->
-<!--                        <img src="{% static 'images/sd.jpg' %}" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="info">-->
-<!--                        <h3 class="titulo">SD</h3>-->
-<!--                        <p class="direccion">Cl. 21 #1-20, Bogotá</p>-->
-<!--                        <p class="resumen">-->
-<!--                            El SD es el edificio de administracion. Muy iconico tambien.-->
-<!--                        </p>-->
-<!--                        <div class="contenedor-btn">-->
-<!--                            <button>Ver Planos</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </figcaption>-->
-
-<!--            <figcaption>-->
-<!--                <i class="icono W fa-solid fa-circle" id="W"></i>-->
-<!--                <div class="tooltipp" id="tooltippW">-->
-<!--                    <div class="thumb">-->
-<!--                        <img src="{% static 'images/W.jpg' %}" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="info">-->
-<!--                        <h3 class="titulo">W</h3>-->
-<!--                        <p class="direccion">Cl. 19A #1e-37, Bogotá</p>-->
-<!--                        <p class="resumen">-->
-<!--                            El W es el edificio de economia. Otro bien iconico.-->
-<!--                        </p>-->
-<!--                        <div class="contenedor-btn">-->
-<!--                            <button>Ver Planos</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </figcaption>-->
-
-<!--            <figcaption>-->
-<!--                <i class="icono Ts fa-solid fa-circle" id="Ts"></i>-->
-<!--                <div class="tooltipp" id="tooltippTs">-->
-<!--                    <div class="thumb">-->
-<!--                        <img src="{% static 'images/Ts.jpg' %}" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="info">-->
-<!--                        <h3 class="titulo">Torre Seneca</h3>-->
-<!--                        <p class="direccion">Cl. 19 #2a-10, Bogotá</p>-->
-<!--                        <p class="resumen">-->
-<!--                            Torre Seneca junto a dos torres mas, son las viviendas universitarias de Uniandes.-->
-<!--                        </p>-->
-<!--                        <div class="contenedor-btn">-->
-<!--                            <button>Ver Planos</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </figcaption>-->
-
-
-
-
-
+            <svg class="svg" id="svg" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"></svg>
         </figure>
-
-
     </main>
 
 
@@ -188,7 +131,7 @@
             <canvas id="myCanvas" width="1100%" height="793%"></canvas>
 
             <div class="item ml3" id="ML3" onClick="selected_building(this.id)" style="top: 42%; left: 45%;">
-                <div class="icon">ML</div>
+                <div class="icon-2">ML</div>
                     <div class="tooltip">
                         <h3>Mario Laserna - ML3</h3>
                         <p>dummy text</p>
@@ -196,7 +139,7 @@
             </div>
 <!--            33% 37%-->
             <div class="item ml1" id="ML1" onClick="selected_building(this.id)" style="top: 34%; left: 36.5%;">
-                <div class="icon">ML</div>
+                <div class="icon-2">ML</div>
                     <div class="tooltip">
                         <h3>Mario Laserna - ML1</h3>
                         <p>dummy text</p>
@@ -213,26 +156,10 @@
     </div>
 
 
-
-<!--        <div class="popup">-->
-<!--            <div class="popup-content">-->
-<!--                <ion-icon name="close-outline" alt="Close" class="close"></ion-icon>-->
-<!--                <h1>Building selection - Tag</h1>-->
-<!--                <p>-->
-<!--                    Description of the building for example:-->
-<!--                    This building was founded 10 years ago-->
-<!--                    by the director of Niacin.-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        </div>-->
-
-
-
     <script src="{% static 'script/script.js' %}"></script>
     <script src="{% static 'script/put_icons.js' %}"></script>
     <script src="{% static 'script/tooltipp.js' %}"></script>
     <script type="module" src="{% static 'script/drawsvg.js' %}"></script>
-
 
 
 

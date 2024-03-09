@@ -1,0 +1,18 @@
+.form-flexbox {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    gap: 1em;
+    /*justify-content: space-evenly;*/
+}
+
+
+.form-div {
+    background-color: #1a1ef0;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.statistics-path{
+    background-color: #1a1ef0;
+    flex-grow: 0.2;
+}
