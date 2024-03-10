@@ -17,8 +17,8 @@ const calculatePathPosition = () => {
 
 
         // Calculate the position of the icon
-        const x = icon.offsetLeft + 13;
-        const y = icon.offsetTop + 13;
+        const x = icon.offsetLeft + 5;
+        const y = icon.offsetTop + 6;
 
         if (index === 0) {
             d += `M ${x} ${y} `;
@@ -56,7 +56,7 @@ const calculatePathPosition = () => {
 
 
     let animation3 = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-    animation3.setAttribute('dur', "3s");
+    animation3.setAttribute('dur', "7s");
     animation3.setAttribute('repeatCount', 'indefinite');
     animation3.setAttribute('path', d);
 

@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buildingPositions.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,55 +30,104 @@
 
 
 <body class="body">
-<div class="title-map"><h1>Uniandes Map</h1></div>
+
+<div class="header">
+    <h1>Uniandes Map</h1>
+</div>
+
 
 
 {{ path|json_script:"id-list" }}
 
-<form method="post">
-    {% csrf_token %}
-    <label for="start_point_button">Punto Inicial: </label>
-    <input type="text" id="start_point_button" name="start_point" placeholder="Incio">
-
-    <button type="button" class="delete-point" id="delete_start_point" onClick="delete_point(this.id)">
-        <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <label for="end_point_button">&emsp;Punto Final: </label>
-    <input type="text" id="end_point_button" name="end_point" placeholder="Fin" >
-
-    <button type="button" class="delete-point" id="delete_end_point" onClick="delete_point(this.id)">
-        <ion-icon name="close-outline"></ion-icon>
-    </button>
-    <p style="display:inline;">&emsp;</p>
-
-    <input type="submit" id="search_button" value="Buscar Ruta">
-</form>
 
 
-<h3>Distancia del recorrido:</h3>
-<span>{{ total_distance }}</span>
-<h3>Tiempo aproximado:</h3>
-<span>{{ walk_time }}</span><br><br>
-<h3>Ruta:</h3><br>
-{% for place in path %}
-<ul>
-    <li class="places">{{ place }}</li>
-</ul>
-{% endfor %}
+<div class="form-flexbox">
+
+    <div class="form-div">
+        <form method="post">
+            {% csrf_token %}
+            <article class="l-design-widht">
+                <div class="card card--accent">
+                    <h2 style="margin-top: -10px"><svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-coffee" href="#icon-coffee" />
+                    </svg>Ruta</h2>
+                    <label class="input">
+
+                        <input class="input__field" type="text" placeholder=" " id="start_point_button" name="start_point"/>
+                        <span class="input__label">Inicio</span>
+
+                        <input class="input__field" type="text" placeholder=" " id="end_point_button" name="end_point"/>
+                        <span class="input__label" id="label2">Destino</span>
+
+                    </label>
+
+                </div>
+            </article>
+            <input type="submit" class="button-74" id="search_button" value="Buscar Ruta">
+        </form>
+    </div>
+
+    <article class="l-design-widht">
+        <div class="card card--accent">
+            <h2>Información</h2>
+            <div class="input">
+                <div class="statistics-path">
+                    <h4 style="display: inline">Distancia del recorrido:</h4>
+                    <span>{{ total_distance }}</span><br>
+                    <h4 style="display: inline">Tiempo aproximado:</h4>
+                    <span>{{ walk_time }}</span><br>
+                    <h4 style="display: inline">Ruta:</h4>
+                    <p style="display: inline">{{ path }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <symbol id="icon-coffee" viewBox="0 0 20 20">
+            <title>icon-coffee</title>
+            <!--            <path fill="#444444" d="M512 13131.333333c-164.949333 0-298.666667 133.738667-298.666667 298.666667 0 164.949333 298.666667 554.666667 298.666667 554.666667s298.666667-389.717333 298.666667-554.666667c0-164.928-133.717333-298.666667-298.666667-298.666667z m0 448a149.333333 149.333333 0 1 1 0-298.666666 149.333333 149.333333 0 0 1 0 298.666666z"></path>-->
+        </symbol>
+    </svg>
+
+</div>
+
+<div class="map-flexbox">
 
 
-<main class="contenedor">
-    <figure id="figure">
+    <main class="contenedor">
+        <figure id="figure">
+            <img src="{% static 'images/mapandes.jpeg' %}" class="mapa" alt="">
+            <svg class="svg" id="svg" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg"></svg>
+        </figure>
+    </main>
 
-        <img src="{% static 'images/map_campus.jpeg' %}" class="mapa" alt="">
+    <div class="buildings-table">
+        <table class="table-class">
+            <tr>
+                <th style="border-radius: 3px 0 0 0; border: 1px solid rgba(33, 33, 33, 0.1);">Bloque</th>
+                <th style="border: 1px solid rgba(33, 33, 33, 0.1);">Edificio</th>
+            </tr>
 
-        <svg class="svg" id="svg" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <tbody>
+            {% for building in buildings %}
+            <tr>
+                <td class="row" style="text-align: center; font-weight: bold">{{ building.letters }}</td>
+                <td class="row">{{ building.name }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-        </svg>
+    </div>
 
-    </figure>
-</main>
+</div>
+
+
+
+
+
+
 
 
 
@@ -108,7 +160,7 @@
         <canvas id="myCanvas" width="1100%" height="793%"></canvas>
 
         <div class="item ml3" id="ML3" onClick="selected_building(this.id)" style="top: 42%; left: 45%;">
-            <div class="icon">ML</div>
+            <div class="icon-2">ML</div>
             <div class="tooltip">
                 <h3>Mario Laserna - ML3</h3>
                 <p>dummy text</p>
@@ -116,7 +168,7 @@
         </div>
         <!--            33% 37%-->
         <div class="item ml1" id="ML1" onClick="selected_building(this.id)" style="top: 34%; left: 36.5%;">
-            <div class="icon">ML</div>
+            <div class="icon-2">ML</div>
             <div class="tooltip">
                 <h3>Mario Laserna - ML1</h3>
                 <p>dummy text</p>
@@ -137,6 +189,7 @@
 <script src="{% static 'script/put_icons.js' %}"></script>
 <script src="{% static 'script/tooltipp.js' %}"></script>
 <script type="module" src="{% static 'script/drawsvg.js' %}"></script>
+<script src="{% static 'script/clicktable.js' %}" defer></script>
 
 
 

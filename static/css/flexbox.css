@@ -1,18 +1,102 @@
 .form-flexbox {
     display: flex;
-    /*flex-wrap: wrap;*/
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 1em;
+    /*align-items: flex-end;*/
     /*justify-content: space-evenly;*/
+
+    /*background-color: #1a1ef0;*/
 }
 
 
 .form-div {
-    background-color: #1a1ef0;
-    flex-shrink: 0;
+    /*background-color: #1a1ef0;*/
+    /*flex-shrink: 0;*/
     flex-grow: 0;
 }
 
 .statistics-path{
-    background-color: #1a1ef0;
-    flex-grow: 0.2;
+    /*display: flex;*/
+    /*justify-content: space-evenly;*/
+    /*background-color: #1a1ef0;*/
+    /*flex-shrink: 0;*/
+    /*flex-grow: 0.2;*/
+    align-self: flex-end;
+}
+
+.map-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: row;*/
+    gap: 1em;
+
+    /*background-color: #f01a1a;*/
+}
+
+
+.buildings-table {
+    /*background-color: #21f01a;*/
+    height: 1000px;
+    width: 500px;
+    margin-left: auto;
+    margin-top: -220px;
+    /*flex-shrink: 1;*/
+
+    overflow: hidden;
+    overflow-y: scroll;
+    border: solid rgb(33, 33, 33) 3px;
+    border-radius: 6px;
+
+    box-shadow: -4.5px 5px 0 5px #212121;
+}
+
+.buildings-table::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 252, 103, 0.58);
+    border: 2px solid rgba(33, 33, 33, 0.13);
+    border-radius: 0 4px 4px 0;
+    background-clip: padding-box;
+}
+.buildings-table::-webkit-scrollbar {
+    width: 13px;
+    /*background-color: #1a1ef0;*/
+}
+
+
+table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+.table-class {
+    /*border: solid rgb(33, 33, 33) 3px;*/
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 10px 10px 0 rgb(33, 33, 33);
+}
+
+.table-class tr:hover {
+    background: #FFFC67FF;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 252, 103, 0.09);
+}
+tr:nth-child(odd) {
+    background-color: rgb(239, 239, 239);
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: #FFFC67FF;
+}
+td {
+    border: 1px solid rgba(33, 33, 33, 0.1);
+    /*font-weight: bold;*/
 }

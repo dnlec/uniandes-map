@@ -7,7 +7,7 @@ import networkx as nx
 import pandas as pd
 
 # what is edge_key??
-df = pd.read_csv("static/csv/umap.csv")
+df = pd.read_csv("static/csv/tablemap.csv")
 MAP = nx.from_pandas_edgelist(df, source="Start", target="End", edge_attr="weight")
 
 # Create your views here.
@@ -19,6 +19,8 @@ def index(request):
 
 def uniandes_map(request):
     context = {}
+    buildings = Buildings.objects.all().order_by("letters").values()
+    context['buildings'] = buildings
     if request.method == "POST":
         form = BuildingsForm(request.POST)
         print(form)
@@ -47,6 +49,6 @@ def uniandes_map(request):
         else:
             raise Http404
 
-    return render(request, "uniandes_map.html")
+    return render(request, "uniandes_map.html", context)
 
 

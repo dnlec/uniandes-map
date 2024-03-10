@@ -15,8 +15,8 @@ const calcularPosicionTooltipp = () => {
         const altoTooltipp = tooltipps[i].clientHeight;
 
         // Calculamos donde posicionaremos el tooltip.
-        const izquierda = x - (anchoTooltipp / 2) + 12;
-        const arriba = y - altoTooltipp - 20;
+        const izquierda = x - (anchoTooltipp / 2) + 5;
+        const arriba = y - altoTooltipp - 25;
 
         tooltipps[i].style.left = `${izquierda}px`;
         tooltipps[i].style.top = `${arriba}px`;
@@ -41,7 +41,7 @@ for(let i = 0; i < iconos.length; i++) {
     iconos[i].addEventListener('mouseleave', () => {
         timer[i] = setTimeout(() => {
             tooltipps[i].classList.remove('activo');
-        }, 500);
+        }, 200);
     })
 }
 

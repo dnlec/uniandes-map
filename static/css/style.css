@@ -6,7 +6,8 @@
 
 body {
     min-height: 100vh;
-    background: #EFEFEF;
+    /*background: #EFEFEF;*/
+    background: #f9eee1;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     padding: 50px 0;
@@ -23,10 +24,21 @@ body {
     opacity: 0.9;
     z-index: 2000;
     font-family: "Libre Franklin", sans-serif;
-
+    text-align: center;
+    padding-bottom: 10px;
 }
 
+.title {
+    margin-top: 10px;
+}
 
+.svg-logo {
+    position: absolute;
+    display: inline-flex;
+    left: 1050px;
+    top: 10px;
+
+}
 
 
 .places{
@@ -208,7 +220,6 @@ h1{
 }
 
 
-
 .tooltip h3{
     font-size: 24px;
     margin-bottom: 10px;
@@ -321,6 +332,62 @@ h1{
     background: #f2f218;
 }
 
+.expand {
+    /*transition: background 0.2s, transform 0.5s;*/
+    /*transform: scale(1.5);*/
+    animation: jump 4s linear;
+}
+
+
+
+@keyframes jump {
+    0%{
+        transform: scale(1, 1);
+        color: red;
+    }
+
+    10%{
+        transform: scale(4, 4);
+    }
+
+    20%{
+        transform: scale(1,1)
+    }
+
+    30%{
+        transform: scale(4, 4);
+    }
+
+    40%{
+        transform: scale(1, 1);
+    }
+
+    50%{
+        transform: scale(4, 4);
+    }
+
+    60%{
+        transform: scale(1, 1);
+    }
+
+    70%{
+        transform: scale(4, 4);
+        color: red;
+    }
+
+    80%{
+        transform: scale(1, 1);
+    }
+
+    90%{
+        transform: scale(4, 4);
+    }
+
+    100%{
+        transform: scale(1, 1);
+    }
+}
+
 
 
 
@@ -370,11 +437,13 @@ h1{
 /*NUEVO MAPA*/
 .contenedor {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1185px;
     /*margin: auto;*/
-    margin-left: 6%;
+    margin-left: 2%;
     padding-right: 50px;
     padding-top: 50px;
+    margin-bottom: 230px;
+    flex-shrink: 1;
     /*background-color: #1a1ef0;*/
 }
 
@@ -386,6 +455,7 @@ figure{
 
 figure .mapa {
     width: 100%;
+    object-fit: cover;
     vertical-align: top;
     box-shadow: 5px 5px 60px rgba(0, 0, 0, .20);
     border-radius: 10px;
@@ -394,52 +464,36 @@ figure .mapa {
 
 }
 
+
 figure .icono {
     position: absolute;
-    font-size: 25px;
+    font-size: 10px;
     color: rgba(255, 229, 15, 0.99);
     z-index: 100;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.5s;
 }
+
+
+.icono:hover {
+    color: rgb(69, 123, 255);
+    transform: scale(3, 3);
+}
+
+.icono:active {
+    color: rgba(45, 40, 1, 0.99);
+}
+
 figure .iconoIn {
     position: absolute;
-    font-size: 15px;
+    font-size: 10px;
     color: rgba(175, 255, 15, 0.62);
     z-index: 100;
 }
 
 
-figure .ML1 {
-    top: 32%;
-    left: 36%;
-}
-figure .Sd {
-    top: 16%;
-    left: 17%;
-}
 
-figure .W {
-    top: 49%;
-    left: 41%;
-}
-
-figure .Ts {
-    top: 42%;
-    left: 5%;
-}
-
-
-figure .In1 {
-    top: 39%;
-    left: 18%;
-}
-figure .In2 {
-    top: 40%;
-    left: 20%;
-}
-figure .In3 {
-    top: 38%;
-    left: 31%;
-}
 
 .tooltipp {
     display: flex;

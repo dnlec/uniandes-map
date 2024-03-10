@@ -7,8 +7,8 @@
 /* CSS */
 .button-74 {
     position: absolute;
-    left: 365px;
-    top: 15.5rem;
+    left: 330px;
+    top: 14rem;
 
     background-color: #fbeee0;
     border: 2px solid #422800;
@@ -66,7 +66,7 @@
     color: var(--color-text);
     background: var(--color-background);
     font-weight: 300;
-    padding: 0 calc(var(--size-bezel) * 3);
+    padding: 0 calc(var(--size-bezel) * 2);
 }
 
 h1, h2, h3 {
@@ -82,13 +82,13 @@ mark {
 
 .card {
     background: var(--color-background);
-    padding: calc(6 * var(--size-bezel));
+    padding: calc(5 * var(--size-bezel));
     margin-top: calc(4 * var(--size-bezel));
     border-radius: var(--size-radius);
     border: 3px solid var(--color-shadow, currentColor);
     box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
     width: 100%;
-    
+
     *:first-child {
         margin-top: 0;
     }
@@ -108,7 +108,7 @@ mark {
 
 
 .l-design-widht {
-    /*max-width: 35rem;*/
+    max-width: 35rem;
     padding: 1rem;
     /*background-color: #1a1ef0;*/
     /*margin-left: 5rem;*/
@@ -116,6 +116,8 @@ mark {
 
 .input {
     position: relative;
+    /*background-color: #1a1ef0;*/
+    margin-top: 10px;
 }
 
 
@@ -123,7 +125,7 @@ mark {
     position: absolute;
     left: 0;
     top: 140%;
-    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    padding: calc(var(--size-bezel) * 0.2) calc(var(--size-bezel) * .5);
     margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
     background: pink;
     white-space: nowrap;
@@ -132,11 +134,11 @@ mark {
     background: var(--color-background);
     transition: transform 120ms ease-in;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 0.8;
 }
 .input__field {
     box-sizing: border-box;
-    display: inline-flex;
+    /*display: inline-flex;*/
     width: 40%;
     border: 3px solid currentColor;
     padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
