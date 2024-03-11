@@ -33,3 +33,52 @@
 <!--            <p>Most of the projects I work on have about <mark>3</mark> important colors: Main- , Accent-  and Background-Color. Naturally tons of other colors are used in a typical Project, but they are mostly used within specific components.</p>-->
 
 <!--            <p>I find it useful to set those 3 colors as vars on the root and change them in specific contexts. It turns out that the complexity of the components I build is dramatically cut down by this. And also gives me a lot of control over the cascade.</p>-->
+
+
+<!--    <div class="container">-->
+<!--        <div id="buttons">-->
+<!--            <a class="rounded-button">-->
+<!--                <ion-icon name="ellipse-outline"></ion-icon>-->
+<!--            </a>-->
+
+<!--            <a class="rounded-button">-->
+<!--                <ion-icon name="ellipse-outline"></ion-icon>-->
+<!--            </a>-->
+
+<!--            <a class="rounded-button">-->
+<!--                <ion-icon name="ellipse-outline"></ion-icon>-->
+<!--            </a>-->
+<!--        </div>-->
+
+<!--        <div class="image-hotspot">-->
+
+
+
+<!--            <img src="{% static 'images/map_campus.jpeg' %}" alt="image hotspot">-->
+
+<!--            <canvas id="myCanvas" width="1100%" height="793%"></canvas>-->
+
+<!--            <div class="item ml3" id="ML3" onClick="selected_building(this.id)" style="top: 42%; left: 45%;">-->
+<!--                <div class="icon-2">ML</div>-->
+<!--                    <div class="tooltip">-->
+<!--                        <h3>Mario Laserna - ML3</h3>-->
+<!--                        <p>dummy text</p>-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            33% 37%&ndash;&gt;-->
+<!--            <div class="item ml1" id="ML1" onClick="selected_building(this.id)" style="top: 34%; left: 36.5%;">-->
+<!--                <div class="icon-2">ML</div>-->
+<!--                    <div class="tooltip">-->
+<!--                        <h3>Mario Laserna - ML1</h3>-->
+<!--                        <p>dummy text</p>-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--            <div class="item in" id="In3" onClick="selected_building(this.id)" style="top: 39%; left: 32%;">-->
+<!--                <div class="icon-in">In</div>-->
+<!--                    <div class="tooltip">-->
+<!--                        <h3>Interseccion 3 - In3</h3>-->
+<!--                        <p>Una simple interseccion</p>-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->

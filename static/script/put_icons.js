@@ -41,8 +41,6 @@ const points =
     ['Cj', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['E', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['Ñn', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
-    ['Ñv1', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
-    ['Ñv2', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['Pu', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['Ñg', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
     ['Ñd', 'Cl. 19A #1e-37, Bogotá', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
@@ -134,7 +132,7 @@ for(let i = 0; i < points.length; i++) {
 }
 
 const connections = ['In1', 'In2', 'In3', 'In4','In5', 'In6', 'In7', 'In8','In9', 'In10', 'In11', 'In12',
-    'In13', 'In14'];
+    'In13', 'In14', 'In15'];
 
 
 if(path.length !== 0) {

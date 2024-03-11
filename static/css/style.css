@@ -6,8 +6,8 @@
 
 body {
     min-height: 100vh;
-    /*background: #EFEFEF;*/
-    background: #f9eee1;
+    background: #EFEFEF;
+    /*background: #f9eee1;*/
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     padding: 50px 0;
@@ -528,7 +528,7 @@ figure .iconoIn {
 }
 
 .tooltipp .thumb {
-    width: 40%;
+    width: 60%;
 }
 
 .tooltipp .thumb img{
@@ -540,7 +540,7 @@ figure .iconoIn {
 }
 
 .tooltipp .info {
-    width: 60%;
+    width: 40%;
     padding: 20px;
     display: flex;
     flex-direction: column;

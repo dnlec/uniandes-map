@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 1em;
+    gap: 4em;
     /*align-items: flex-end;*/
     /*justify-content: space-evenly;*/
 
@@ -30,6 +30,7 @@
     flex-wrap: wrap;
     /*flex-direction: row;*/
     gap: 1em;
+    height: 800px;
 
     /*background-color: #f01a1a;*/
 }
@@ -47,6 +48,7 @@
     overflow-y: scroll;
     border: solid rgb(33, 33, 33) 3px;
     border-radius: 6px;
+
 
     box-shadow: -4.5px 5px 0 5px #212121;
 }

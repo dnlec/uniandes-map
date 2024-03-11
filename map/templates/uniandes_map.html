@@ -91,6 +91,14 @@
                 <div class="input">
                     <div class="statistics-path">
                        <h1>Selecciona un camino</h1>
+<!--                        <div class="statistics-path">-->
+<!--                            <h4 style="display: inline">Distancia del recorrido:</h4>-->
+<!--                            <span>{{ total_distance }}</span><br>-->
+<!--                            <h4 style="display: inline">Tiempo aproximado:</h4>-->
+<!--                            <span>{{ walk_time }}</span><br>-->
+<!--                            <h4 style="display: inline">Ruta:</h4>-->
+<!--                            <p style="display: inline">{{ path }}</p>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -135,68 +143,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container">
-        <div id="buttons">
-            <a class="rounded-button">
-                <ion-icon name="ellipse-outline"></ion-icon>
-            </a>
-
-            <a class="rounded-button">
-                <ion-icon name="ellipse-outline"></ion-icon>
-            </a>
-
-            <a class="rounded-button">
-                <ion-icon name="ellipse-outline"></ion-icon>
-            </a>
-        </div>
-
-        <div class="image-hotspot">
-
-
-
-            <img src="{% static 'images/map_campus.jpeg' %}" alt="image hotspot">
-
-            <canvas id="myCanvas" width="1100%" height="793%"></canvas>
-
-            <div class="item ml3" id="ML3" onClick="selected_building(this.id)" style="top: 42%; left: 45%;">
-                <div class="icon-2">ML</div>
-                    <div class="tooltip">
-                        <h3>Mario Laserna - ML3</h3>
-                        <p>dummy text</p>
-                    </div>
-            </div>
-<!--            33% 37%-->
-            <div class="item ml1" id="ML1" onClick="selected_building(this.id)" style="top: 34%; left: 36.5%;">
-                <div class="icon-2">ML</div>
-                    <div class="tooltip">
-                        <h3>Mario Laserna - ML1</h3>
-                        <p>dummy text</p>
-                    </div>
-            </div>
-            <div class="item in" id="In3" onClick="selected_building(this.id)" style="top: 39%; left: 32%;">
-                <div class="icon-in">In</div>
-                    <div class="tooltip">
-                        <h3>Interseccion 3 - In3</h3>
-                        <p>Una simple interseccion</p>
-                    </div>
-            </div>
-        </div>
-    </div>
-
 
     <script src="{% static 'script/script.js' %}"></script>
     <script src="{% static 'script/put_icons.js' %}"></script>

@@ -213,15 +213,6 @@ figure .Ñn {
     left: 56%;
 }
 
-figure .Ñv1 {
-    top: 78%;
-    left: 54%;
-}
-
-figure .Ñv2 {
-    top: 76%;
-    left: 51%;
-}
 
 figure .Pu {
     top: 75%;
@@ -233,10 +224,7 @@ figure .Ñg {
     left: 51.5%;
 }
 
-figure .Ñd {
-    top: 72%;
-    left: 59%;
-}
+
 
 figure .H {
     top: 71%;
@@ -330,4 +318,9 @@ figure .In13 {
 figure .In14 {
     top: 75.5%;
     left: 68%;
+}
+
+figure .In15 {
+    top: 72%;
+    left: 59%;
 }
