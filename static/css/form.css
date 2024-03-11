@@ -3,7 +3,6 @@
 /*<button class="button-74" role="button">Button 74</button>*/
 
 /*SEARCH BUTTON*/
-
 /* CSS */
 .button-74 {
     position: absolute;
@@ -35,6 +34,12 @@
 .button-74:active {
     box-shadow: #422800 2px 2px 0 0;
     transform: translate(2px, 2px);
+}
+
+#delete_button {
+    position: absolute;
+    left: 40px;
+    top: 17rem;
 }
 
 @media (min-width: 768px) {

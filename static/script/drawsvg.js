@@ -5,8 +5,6 @@ const svg = document.getElementById('svg');
 // const points = ['ML', 'SD', 'W', 'Ts', 'In1', 'In2'];
 let d = ``;
 
-
-
 const calculatePathPosition = () => {
 
     d = ``;
@@ -30,7 +28,7 @@ const calculatePathPosition = () => {
     // Draw the path
     let path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path3.setAttribute('d', d);
-    path3.setAttribute('style', 'stroke:black;fill:none;stroke-width:5');
+    path3.setAttribute('style', 'stroke:#3483eb;fill:none;stroke-width:4');
     svg.appendChild(path3);
 
     // Animations
@@ -51,7 +49,7 @@ const calculatePathPosition = () => {
 
 
     let circle3 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle3.setAttribute('r', '5');
+    circle3.setAttribute('r', '3');
     circle3.setAttribute('fill', 'red');
 
 

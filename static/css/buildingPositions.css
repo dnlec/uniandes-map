@@ -19,13 +19,13 @@ figure .Sd {
 }
 
 figure .W1 {
-    top: 49%;
-    left: 61.5%;
+    top: 51.4%;
+    left: 60.3%;
 }
 
 figure .W2 {
-    top: 51%;
-    left: 61%;
+    top: 49%;
+    left: 61.5%;
 }
 
 figure .S2 {
@@ -94,8 +94,8 @@ figure .P1 {
 }
 
 figure .Ga {
-    top: 57%;
-    left: 88%;
+    top: 55%;
+    left: 79%;
 }
 
 figure .C1 {
@@ -159,8 +159,8 @@ figure .G {
 }
 
 figure .Rga {
-    top: 60%;
-    left: 55%;
+    top: 63%;
+    left: 54%;
 }
 
 figure .Rgb {
@@ -323,4 +323,29 @@ figure .In14 {
 figure .In15 {
     top: 72%;
     left: 59%;
+}
+
+figure .In16 {
+    top: 58%;
+    left: 73%;
+}
+
+figure .In17 {
+    top: 57%;
+    left: 73.7%;
+}
+
+figure .In18 {
+    top: 57.6%;
+    left: 74.2%;
+}
+
+figure .In19 {
+    top: 60%;
+    left: 74.4%;
+}
+
+figure .In20 {
+    top: 54.5%;
+    left: 77.5%;
 }

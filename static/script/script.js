@@ -71,17 +71,21 @@ document.addEventListener('input', e => {
 })
 
 
-
-
 document.getElementById("search_button").addEventListener("click", function(event){
     if (startButton.value === "" && endButton.value === ""){
         alert("Debes seleccionar dos puntos");
         event.preventDefault();
-
     } else if (startButton.value === "" || endButton.value === "") {
         alert("Debes seleccionar otro punto");
         event.preventDefault();
     }
+});
+
+let startPointButton = document.getElementById('start_point_button');
+let endPointButton = document.getElementById('end_point_button');
+document.getElementById('delete_button').addEventListener('click', () => {
+    startPointButton.value = '';
+    endPointButton.value = '';
 })
 
 
