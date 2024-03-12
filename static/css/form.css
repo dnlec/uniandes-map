@@ -55,7 +55,7 @@
 :root {
     --color-light: white;
     --color-dark: #212121;
-    --color-signal: #fab700;
+    --color-signal: #FFFC67FF;
 
     --color-background: var(--color-light);
     --color-text: var(--color-dark);
@@ -123,6 +123,15 @@ mark {
     position: relative;
     /*background-color: #1a1ef0;*/
     margin-top: 10px;
+}
+
+#mode {
+    position: absolute;
+    top: -140%;
+    left: 30%;
+
+    border: none;
+    background-color: transparent;
 }
 
 

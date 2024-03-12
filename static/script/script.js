@@ -51,9 +51,35 @@
 // };
 //
 //
-// if ( window.history.replaceState ) {
-//         window.history.replaceState( null, null, window.location.href);
-// }
+
+let siButton = document.getElementById('si_button');
+let noButton = document.getElementById('no_button');
+let mode = document.getElementById('mode');
+
+window.addEventListener("load", function(){
+    document.querySelector(".popup").style.display = "flex";
+})
+
+
+siButton.addEventListener('click', () => {
+
+    document.querySelector('.popup').style.display = 'none';
+    mode.value = 'Discapacitado';
+})
+
+noButton.addEventListener('click', () => {
+
+    document.querySelector('.popup').style.display = 'none';
+    mode.value = 'Normal';
+})
+
+
+
+
+
+if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href);
+}
 
 
 // INPUT BOX

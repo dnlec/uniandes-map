@@ -47,6 +47,8 @@
 </div>
 
 
+
+
 {{ path|json_script:"id-list" }}
 <div class="form-flexbox">
     <div class="form-div">
@@ -54,13 +56,16 @@
             {% csrf_token %}
             <article class="l-design-widht">
                 <div class="card card--accent">
-                    <h2 style="margin-top: -10px">Ruta</h2>
+                    <h2 style="margin-top: -10px">Ruta:</h2>
+
                     <label class="input">
+
                         <input class="input__field" type="text" placeholder=" " id="start_point_button" name="start_point" readonly/>
                         <span class="input__label">Inicio</span>
 
                         <input class="input__field" type="text" placeholder=" " id="end_point_button" name="end_point" readonly/>
                         <span class="input__label" id="label2">Destino</span>
+
                     </label>
                 </div>
             </article>
@@ -80,7 +85,7 @@
                         <h4 style="display: inline">Tiempo aproximado:</h4>
                         <span>{{ walk_time }}</span><br>
                         <h4 style="display: inline">Ruta:</h4>
-                        <p style="display: inline">{{ clean_path }}</p>
+                        <p style="display: inline">{{ path }}</p>
                     </div>
                 </div>
             </div>
@@ -88,6 +93,7 @@
     </article>
 
 </div>
+
 
 <div class="map-flexbox">
 

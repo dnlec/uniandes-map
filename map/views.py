@@ -23,13 +23,18 @@ def uniandes_map(request):
     context['buildings'] = buildings
     if request.method == "POST":
         form = BuildingsForm(request.POST)
-        print(form)
         if form.is_valid():
             start_point = form.cleaned_data["start_point"]
             end_point = form.cleaned_data["end_point"]
+            mode = form.cleaned_data['mode']
+            print(mode)
+            velocity = 66
+            if mode == 'Discapacitado':
+                velocity = 48
 
             total_distance, path = nx.single_source_dijkstra(MAP, source=start_point, target=end_point, weight='weight')
-            walk_time = total_distance / 82
+            walk_time = total_distance / velocity
+            print(walk_time)
             if walk_time < 1:
                 walk_time *= 60
                 walk_time = f"{walk_time:.0f} seg"

@@ -47,6 +47,8 @@
     </div>
 
 
+
+
     {{ path|json_script:"id-list" }}
     <div class="form-flexbox">
         <div class="form-div">
@@ -54,13 +56,18 @@
                 {% csrf_token %}
                 <article class="l-design-widht">
                     <div class="card card--accent">
-                        <h2 style="margin-top: -10px">Ruta</h2>
+                        <h2 style="margin-top: -10px">Ruta:</h2>
+
                         <label class="input">
+
                             <input class="input__field" type="text" placeholder=" " id="start_point_button" name="start_point" readonly/>
                             <span class="input__label">Inicio</span>
 
                             <input class="input__field" type="text" placeholder=" " id="end_point_button" name="end_point" readonly/>
                             <span class="input__label" id="label2">Destino</span>
+
+                            <input type="text" placeholder=" " id="mode" name="mode" value="mode"/>
+
                         </label>
                     </div>
                 </article>
@@ -88,6 +95,23 @@
             </div>
         </article>
 
+    </div>
+
+    <div class="popup">
+        <div class="popup-content">
+<!--            <ion-icon name="close-outline" alt="Close" class="close"></ion-icon>-->
+            <h1>Información Adicional</h1><br>
+            <div class="popup-text">
+                <p style="font-weight: bold; display: inline">¿Quieres activar el modo</p>
+                <h3 style="display: inline; color: #1c27fd">discapacitado</h3><p style="font-weight: bold; display: inline">?</p>.<br>
+                <p style="font-size: 25px"> De esta manera las estadísticas serán mas acordes a tu situación.</p>
+            </div>
+            <div class="popup-buttons">
+                <button id="si_button">Si</button>
+                <button id="no_button">No</button>
+            </div>
+
+        </div>
     </div>
 
     <div class="map-flexbox">
